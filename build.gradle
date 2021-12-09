@@ -1,0 +1,116 @@
+plugins {
+    id "java"
+//    id "checkstyle"
+    id "io.freefair.lombok" version "6.3.0"
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
+    id "org.springframework.boot" version "2.3.2.RELEASE"
+}
+
+group = "com.onlyoffice.integration"
+version = "1.0.2"
+
+ext {
+    springCloudVersion = "Hoxton.SR8"
+    springCloudAlibabaVersion = "2.2.3.RELEASE"
+}
+
+repositories {
+    maven { url "https://maven.aliyun.com/repository/public" }
+    maven { url "https://repository.incarcloud.com/content/groups/public" }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    implementation "org.slf4j:slf4j-api"
+    implementation "org.apache.commons:commons-lang3"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "com.h2database:h2"
+    implementation "com.googlecode.json-simple:json-simple"
+    implementation "com.google.code.gson:gson"
+    implementation "com.inversoft:prime-jwt"
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+    implementation "org.modelmapper:modelmapper"
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+        mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:$springCloudAlibabaVersion"
+    }
+
+    dependencies {
+        dependencySet(group: "org.slf4j", version: "1.7.30") {
+            entry "slf4j-api"
+            entry "slf4j-simple"
+            entry "slf4j-log4j12"
+        }
+
+        dependency "org.apache.commons:commons-lang3:3.12.0"
+        dependency "com.googlecode.json-simple:json-simple:1.1"
+        dependency "com.google.code.gson:gson:2.8.5"
+        dependency "com.inversoft:prime-jwt:1.3.1"
+        dependency "org.modelmapper:modelmapper:2.4.2"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar {
+    exclude "**/**-dev.yml"
+}
+
+//task checkstyle(type: Checkstyle) {
+//    configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
+//    ignoreFailures true
+//    showViolations true
+//    source = fileTree("src")
+//    include "**/*.java"
+//    exclude "**/test/**"
+//    exclude "**/build/**"
+//    classpath = files()
+//}
+
+task removeLombokConfig() {
+    def subProjectPath = project.projectDir
+    if (null != subProjectPath) {
+        def lombokConfigFile = new File(subProjectPath, "lombok.config")
+        if (lombokConfigFile.exists()) {
+            lombokConfigFile.delete()
+        }
+    }
+}
+
+task removeOutputLog() {
+    def subProjectPath = project.projectDir
+    if (null != subProjectPath) {
+        subProjectPath.list().each { filename ->
+            if (filename.endsWith(".log")) {
+                def logFile = new File(subProjectPath, filename)
+                if (logFile.exists()) {
+                    logFile.delete()
+                }
+            }
+        }
+    }
+}
+
+defaultTasks "assemble"
