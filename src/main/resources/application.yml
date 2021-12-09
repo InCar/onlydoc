@@ -1,0 +1,60 @@
+# Tomcat settings
+server:
+  port: ${SERVER_PORT:4000}
+
+# Spring settings
+spring:
+  profiles:
+    active: dev
+  application:
+    name: hello-web-onlydoc
+  datasource:
+    url: jdbc:h2:mem:usersdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+    path: /h2
+
+# File Size settings
+filesize-max: 5242880
+
+# Files settings
+files:
+  storage:
+    address:
+    folder: tmp-documents
+  docservice:
+    viewed-docs: .pdf|.djvu|.xps|.oxps
+    edited-docs: .docx|.xlsx|.csv|.pptx|.txt
+    convert-docs: .docm|.dotx|.dotm|.dot|.doc|.odt|.fodt|.ott|.xlsm|.xltx|.xltm|.xlt|.xls|.ods|.fods|.ots|.pptm|.ppt|.ppsx|.ppsm|.pps|.potx|.potm|.pot|.odp|.fodp|.otp|.rtf|.mht|.html|.htm|.xml|.epub|.fb2
+    timeout: 120000
+    history:
+      postfix: -hist
+    url:
+      site: ${DOCUMENTSERVER_SITE:https://documentserver/}
+      converter: ConvertService.ashx
+      command: coauthoring/CommandService.ashx
+      api: web-apps/apps/api/documents/api.js
+      preloader: web-apps/apps/api/documents/cache-scripts.html
+      example:
+    secret:
+    header: Authorization
+
+# Url settings
+url:
+  index: /
+  converter: /converter
+  editor: /editor
+  track: /track
+  download: /download
+
+# Logo settings
+logo:
+  image: ${LOGO_IMAGE:""}
+  imageEmbedded: ${LOGO_IMAGE_EMBEDDED:""}
+  url: ${LOGO_URL:https://www.onlyoffice.com}
