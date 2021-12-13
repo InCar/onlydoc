@@ -206,7 +206,7 @@ http://127.0.0.1:18080/onlydoc/editor?type=desktop
 
 |No.|Name|Type|Remark|
 |:---:|:---:|:----|-----|
-|1|type|`string`|*类型：desktop-桌面，mobile-手机，embedded-嵌入式*|
+|1|type|`string`|*类型：desktop-桌面（默认），mobile-手机，embedded-嵌入式*|
 |2|action|`string`|*动作：view-预览*|
 |3|fileName|`string`|*文件名称*|
 |4|fileKey|`string`|*文件在OnlyOffice缓存Key，必需唯一，默认同`fileName`*|
