@@ -84,6 +84,7 @@ docker build --build-arg APP_NAME=onlydoc \
 |2|*onlydoc*|`4000`|`4000`||
 
 ```bash
+# yaml
 cat > docker-compose.yaml <<-'EOF'
 version: "3"
 services:
@@ -117,11 +118,14 @@ services:
       restart_policy:
         condition: on-failure
 EOF
+
+# start
+docker-compose up -d
 ```
 
 ## 4 Nginx
 
-### 4.1 nginx.conf
+### 4.1 localhost-18080.conf
 
 ```nginx
 map $http_upgrade $connection_upgrade {
