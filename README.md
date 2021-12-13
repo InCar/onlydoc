@@ -194,7 +194,8 @@ server {
 ### 5.1 Params
 
 ```text
-http://127.0.0.1:18080/onlydoc/editor?action=view
+http://127.0.0.1:18080/onlydoc/editor?type=desktop
+  &action=view
   &fileName=test.xlsx
   &fileKey=test2xlsx
   &fileUrl=http://10.0.11.25:9333/1,01fc39db1909
@@ -205,13 +206,14 @@ http://127.0.0.1:18080/onlydoc/editor?action=view
 
 |No.|Name|Type|Remark|
 |:---:|:---:|:----|-----|
-|1|action|`string`|*模式：view-预览*|
-|2|fileName|`string`|*文件名称*|
-|3|fileKey|`string`|*文件在OnlyOffice缓存Key，必需唯一，默认同fileName*|
-|4|fileUrl|`string`|*文件外部URL，当`thirdUri=true`时有效*|
-|5|thirdUri|`boolean`|*使用文件外部URL*|
-|6|lang|`string`|*语言：en-英文（默认），zh-中文*|
-|7|displayName|`string`|*使用人，没有显示“匿名”*|
+|1|type|`string`|*类型：desktop-桌面，mobile-手机，embedded-嵌入式*|
+|2|action|`string`|*动作：view-预览*|
+|3|fileName|`string`|*文件名称*|
+|4|fileKey|`string`|*文件在OnlyOffice缓存Key，必需唯一，默认同`fileName`*|
+|5|fileUrl|`string`|*文件外部URL，当`thirdUri=true`时有效*|
+|6|thirdUri|`boolean`|*使用文件外部URL*|
+|7|lang|`string`|*语言：en-英文（默认），zh-中文*|
+|8|displayName|`string`|*使用人，没有显示“匿名”*|
 
 ### 5.2 Testing
 
