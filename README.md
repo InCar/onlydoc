@@ -219,9 +219,9 @@ http://127.0.0.1:18080/onlydoc/editor?type=desktop
 
 |No.|File|Testing|Remark|
 |:---:|:---:|:---:|-----|
-|1|[test.xlsx](http://10.0.11.25:9333/1,01fc39db1909)|[Excel](http://127.0.0.1:18080/onlydoc/editor?action=view&fileName=test.xlsx&fileKey=test2xlsx&fileUrl=http://10.0.11.25:9333/1,01fc39db1909&thirdUri=true&lang=zh&displayName=张三)|*InCar Only*|
-|2|[test.docx](http://10.0.11.25:9333/6,01fe0f8fd5a4)|[Word](http://127.0.0.1:18080/onlydoc/editor?action=view&fileName=test.docx&fileKey=test2docx&fileUrl=http://10.0.11.25:9333/6,01fe0f8fd5a4&thirdUri=true&lang=zh&displayName=张三)||
-|3|[test.pptx](http://10.0.11.25:9333/6,01ff978bc1c3)|[PowerPoint](http://127.0.0.1:18080/onlydoc/editor?action=view&fileName=test.pptx&fileKey=test2pptx&fileUrl=http://10.0.11.25:9333/6,01ff978bc1c3&thirdUri=true&lang=zh&displayName=张三)||
+|1|[test.xlsx](http://10.0.11.25:9333/1,01fc39db1909)|[Excel](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.xlsx&fileKey=test2xlsx&fileUrl=http://10.0.11.25:9333/1,01fc39db1909&thirdUri=true&lang=zh&displayName=张三)|*InCar Only*|
+|2|[test.docx](http://10.0.11.25:9333/6,01fe0f8fd5a4)|[Word](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.docx&fileKey=test2docx&fileUrl=http://10.0.11.25:9333/6,01fe0f8fd5a4&thirdUri=true&lang=zh&displayName=张三)||
+|3|[test.pptx](http://10.0.11.25:9333/6,01ff978bc1c3)|[PowerPoint](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.pptx&fileKey=test2pptx&fileUrl=http://10.0.11.25:9333/6,01ff978bc1c3&thirdUri=true&lang=zh&displayName=张三)||
 
 ### 6 About File Access Limit
 
