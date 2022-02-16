@@ -1,10 +1,10 @@
 # onlydoc
 
-[![JDK](https://img.shields.io/badge/JDK-1.8-success.svg?style=flat&logo=java)](https://www.oracle.com/java/technologies/javase-downloads.html)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-2.3.2-success.svg?style=flat&logo=spring)](https://docs.spring.io/spring-boot/docs/2.3.x-SNAPSHOT/reference/htmlsingle)
+[![jdk](https://img.shields.io/badge/jdk-1.8-success.svg?style=flat&logo=java)](https://www.oracle.com/java/technologies/javase-downloads.html)
+[![spring boot](https://img.shields.io/badge/spring_boot-2.3.2-success.svg?style=flat&logo=spring)](https://docs.spring.io/spring-boot/docs/2.3.x-SNAPSHOT/reference/htmlsingle)
 [![gradle](https://img.shields.io/badge/gradle-7.2-success.svg?style=flat&logo=gradle)](https://docs.gradle.org/7.2/userguide/installation.html)
-[![Build](https://github.com/InCar/onlydoc/workflows/build/badge.svg)](https://github.com/InCar/onlydoc/actions)
-[![Release](https://img.shields.io/badge/Release-1.0.2-success.svg)](https://github.com/InCar/onlydoc/releases)
+[![build](https://github.com/InCar/onlydoc/workflows/build/badge.svg)](https://github.com/InCar/onlydoc/actions)
+[![release](https://img.shields.io/badge/release-1.0.2-success.svg)](https://github.com/InCar/onlydoc/releases)
 
 > OnlyOffice Integration.
 
