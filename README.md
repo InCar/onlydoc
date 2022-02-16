@@ -91,11 +91,16 @@ services:
   onlyoffice:
     image: onlyoffice/documentserver:6.4.2
     container_name: onlyoffice_community_edition
+    # 仅支持预览可忽略卷
 #    volumes:
 #      - ./onlyoffice/logs:/var/log/onlyoffice
 #      - ./onlyoffice/data:/var/www/onlyoffice/Data
 #      - ./onlyoffice/lib:/var/lib/onlyoffice
 #      - ./onlyoffice/db:/var/lib/postgresql
+    # 自定义域名，请配置docker内网映射，否则OnlyOffice下载文件有问题
+    # 实际生产环境配置内网IP可加速OnlyOffice下载文件
+#    extra_hosts:
+#      - "project.domain.com:192.168.0.100"
     dns:
       - 8.8.8.8
     environment:
@@ -217,11 +222,13 @@ http://127.0.0.1:18080/onlydoc/editor?type=desktop
 
 ### 5.2 Testing
 
+> *注：`fileUrl`带参数，请对URL进行编码。*
+
 |No.|File|Testing|Remark|
 |:---:|:---:|:---:|-----|
-|1|[test.xlsx](http://10.0.11.25:9081/1,0305f2988b)|[Excel](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.xlsx&fileKey=test2xlsx&fileUrl=http://10.0.11.25:9081/1,0305f2988b&thirdUri=true&lang=zh&displayName=张三)|*InCar Only*|
-|2|[test.docx](http://10.0.11.25:9081/2,028758913b)|[Word](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.docx&fileKey=test2docx&fileUrl=http://10.0.11.25:9081/2,028758913b&thirdUri=true&lang=zh&displayName=张三)||
-|3|[test.pptx](http://10.0.11.25:9081/3,0f55954043)|[PowerPoint](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.pptx&fileKey=test2pptx&fileUrl=http://10.0.11.25:9081/3,0f55954043&thirdUri=true&lang=zh&displayName=张三)||
+|1|[test.xlsx](http://10.0.11.25:9081/1,0305f2988b)|[Excel](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.xlsx&fileKey=test2xlsx&fileUrl=http%3A%2F%2F10.0.11.25%3A9081%2F1%2C0305f2988b&thirdUri=true&lang=zh&displayName=张三)|*InCar Only*|
+|2|[test.docx](http://10.0.11.25:9081/2,028758913b)|[Word](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.docx&fileKey=test2docx&fileUrl=http%3A%2F%2F10.0.11.25%3A9081%2F2%2C028758913b&thirdUri=true&lang=zh&displayName=张三)||
+|3|[test.pptx](http://10.0.11.25:9081/3,0f55954043)|[PowerPoint](http://127.0.0.1:18080/onlydoc/editor?type=desktop&action=view&fileName=test.pptx&fileKey=test2pptx&fileUrl=http%3A%2F%2F10.0.11.25%3A9081%2F3%2C0f55954043&thirdUri=true&lang=zh&displayName=张三)||
 
 ### 6 About File Access Limit
 
